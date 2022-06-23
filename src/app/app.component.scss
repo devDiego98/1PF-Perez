@@ -1,12 +1,13 @@
-.mainPage {
-    min-height: 100vh;
-    display: grid;
-    grid-template-areas:
-    'nav nav nav nav nav nav'
-    'sidepanel main main main main main'
-    'sidepanel main main main main main'
-    'sidepanel main main main main main'
-    'sidepanel main main main main main';
-
-    grid-template-rows: repeat(2, min-content);
+:host {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.sidePanelCont {
+  background: #0a000ff5;
+  color: white;
+}
+.mainCont {
+  background-color: #582971;
+  color: white;
 }
