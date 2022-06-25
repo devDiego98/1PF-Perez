@@ -1,0 +1,6 @@
+<h2>Lista de Alumnos</h2>
+<div *ngFor="let alumno of lista">
+  <div *ngIf="alumno.edad > 18">
+    {{ alumno.nombre }}
+  </div>
+</div>
