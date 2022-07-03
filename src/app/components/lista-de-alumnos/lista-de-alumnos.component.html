@@ -1,7 +1,8 @@
 <h3>Filtros</h3>
-<button (click)="setAgeFilter(0, 100)">Todos</button
-><button (click)="setAgeFilter(17, 100)">Mayores</button
-><button (click)="setAgeFilter(0, 18)">Menores</button>
+<button class="btn btn-light mr-3" (click)="setAgeFilter(0, 100)">Todos</button
+><button class="btn btn-light mr-3" (click)="setAgeFilter(17, 100)">
+  Mayores</button
+><button class="btn btn-light" (click)="setAgeFilter(0, 18)">Menores</button>
 <hr />
 <h2>Lista de Alumnos</h2>
 <div *ngFor="let alumno of listaDeAlumnos">
