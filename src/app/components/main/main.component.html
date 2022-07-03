@@ -1,4 +1,10 @@
 <div class="main">
-  <h2>Main</h2>
-  <app-lista-de-alumnos></app-lista-de-alumnos>
+  <h1>Main</h1>
+  <app-lista-de-alumnos
+    [listaDeAlumnos]="alumnos"
+    (onClickAlumno)="acceptData($event)"
+  ></app-lista-de-alumnos>
+  <app-nuevo-alumno-form
+    (addAlumno)="newAlumno($event)"
+  ></app-nuevo-alumno-form>
 </div>

@@ -1,6 +1,15 @@
+<h3>Filtros</h3>
+<button (click)="setAgeFilter(0, 100)">Todos</button
+><button (click)="setAgeFilter(17, 100)">Mayores</button
+><button (click)="setAgeFilter(0, 18)">Menores</button>
+<hr />
 <h2>Lista de Alumnos</h2>
-<div *ngFor="let alumno of lista">
-  <div *ngIf="alumno.edad > 18">
-    {{ alumno.nombre }}
+<div *ngFor="let alumno of listaDeAlumnos">
+  <div
+    *ngIf="alumno.edad > ageFilterMin && alumno.edad < ageFilterMax"
+    (click)="clickAlumno(alumno)"
+  >
+    {{ alumno.nombre | uppercase }}
   </div>
 </div>
+<hr />
