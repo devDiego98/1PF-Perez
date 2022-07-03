@@ -13,8 +13,8 @@ public formulario:FormGroup;
 
   constructor(private fb: FormBuilder) { 
     this.formulario = this.fb.group({
-      nombre:['',[Validators.minLength(4)]],
-      edad:[]
+      nombre:['',[Validators.required,Validators.minLength(4)]],
+      edad:['',[Validators.required,Validators.min(10)]]
     })
   }
   
