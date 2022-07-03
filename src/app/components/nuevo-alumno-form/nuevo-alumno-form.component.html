@@ -1,0 +1,13 @@
+<h3 class="mb-5">Nuevo Alumno</h3>
+
+<form [formGroup]="formulario" (ngSubmit)="agregarAlumno()">
+  <div>Nombre: <input type="text" formControlName="nombre" /></div>
+  <div
+    class="text-danger ml-3 justify-content-end"
+    *ngIf="this.formulario.get('nombre')?.errors?.['minlength']"
+  >
+    Minimo 4 caracteres.
+  </div>
+  <div>Edad:<input type="number" formControlName="edad" /></div>
+  <button type="submit" class="btn btn-light">Crear</button>
+</form>

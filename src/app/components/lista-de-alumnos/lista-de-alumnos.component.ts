@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Alumno } from 'src/app/interfaces/alumnos';
 @Component({
   selector: 'app-lista-de-alumnos',
@@ -6,12 +6,20 @@ import { Alumno } from 'src/app/interfaces/alumnos';
   styleUrls: ['./lista-de-alumnos.component.scss'],
 })
 export class ListaDeAlumnosComponent implements OnInit {
-  lista: Alumno[] = [
-    { nombre: 'diego', edad: 19 },
-    { nombre: 'ale', edad: 16 },
-    { nombre: 'gabriel', edad: 25 },
-  ];
+  @Input() listaDeAlumnos: Alumno[]=[];
+  @Output() onClickAlumno = new EventEmitter<number>();
+  ageFilterMin:number = 0
+  ageFilterMax:number = 100
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  
+  }
+  clickAlumno(alumno:Alumno){
+    this.onClickAlumno.emit(alumno.edad)
+  }
+  setAgeFilter(min:number,max:number){
+    this.ageFilterMin = min;
+    this.ageFilterMax = max;
+  }
 }
