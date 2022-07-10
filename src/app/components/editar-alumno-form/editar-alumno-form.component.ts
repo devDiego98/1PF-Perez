@@ -11,9 +11,10 @@ export class EditarAlumnoFormComponent implements OnInit {
   @Input() alumno:Alumno | undefined ;
   public formulario:FormGroup;
   @Output() editAlumno = new EventEmitter<Alumno>();
+
   constructor(private fb: FormBuilder) { 
     this.formulario = this.fb.group({
-      nombre:[this.alumno?.nombre,[Validators.required,Validators.minLength(4)]],
+      nombre:['',[Validators.required,Validators.minLength(4)]],
       apellido:['',[Validators.required,Validators.minLength(4)]],
       edad:['',[Validators.required,Validators.min(10)]]
     })
@@ -23,11 +24,17 @@ export class EditarAlumnoFormComponent implements OnInit {
 
   }
   
-  editarAlumno(){
+  editarAlumno(alumno:Alumno){
+    console.log(this.formulario.get('nombre')?.errors)
+    if(this.formulario.get('nombre')?.errors === null && this.formulario.get('apellido')?.errors === null  && this.formulario.get('edad')?.errors === null  ){
     let nuevoAlumno = this.formulario.value;
     nuevoAlumno.id = this.alumno?.id;
     this.editAlumno.emit(nuevoAlumno)
     this.formulario.reset()
+    }else {
+      alert('Invalido')
+   
+    }
   }
 }
 

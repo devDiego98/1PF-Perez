@@ -27,13 +27,23 @@
       <tr
         *ngIf="alumno.edad > ageFilterMin && alumno.edad < ageFilterMax"
         (click)="editAlumno(alumno)"
-        data-bs-toggle="modal"
-        data-bs-target="#editarAlumnoModal"
       >
-        <th scope="row">{{ alumno.id }}</th>
-        <td>{{ alumno.nombre | titleCase }}</td>
-        <td>{{ alumno.apellido | titleCase }}</td>
-        <td>{{ alumno.edad }}</td>
+        <th
+          scope="row"
+          data-bs-toggle="modal"
+          data-bs-target="#editarAlumnoModal"
+        >
+          {{ alumno.id }}
+        </th>
+        <td data-bs-toggle="modal" data-bs-target="#editarAlumnoModal">
+          {{ alumno.nombre | titleCase }}
+        </td>
+        <td data-bs-toggle="modal" data-bs-target="#editarAlumnoModal">
+          {{ alumno.apellido | titleCase }}
+        </td>
+        <td data-bs-toggle="modal" data-bs-target="#editarAlumnoModal">
+          {{ alumno.edad }}
+        </td>
         <td>
           <button class="btn btn-danger" (click)="delete(i)">Delete</button>
         </td>

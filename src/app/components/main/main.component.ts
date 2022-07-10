@@ -16,7 +16,7 @@ export class MainComponent{
  
   alumnos: Alumno[] = [
     { nombre: 'diego',apellido:'perez', edad: 19,id:0 },
-    { nombre: 'ale',apellido:'fonsi', edad: 16 ,id:1},
+    { nombre: 'alejandro',apellido:'fonsi', edad: 16 ,id:1},
     { nombre: 'gabriel',apellido:'juarez', edad: 25, id:2 },
   ];
   constructor() { 
@@ -31,7 +31,11 @@ export class MainComponent{
  
   setearAlumnoAModificar(alumno:Alumno){
     this.infoAlumno = alumno
-    this.editarAlumnoModal.formulario.setValue(alumno)
+    this.editarAlumnoModal.formulario.setValue({
+      nombre:alumno.nombre,
+      apellido:alumno.apellido,
+      edad:alumno.edad,
+    })
 
   }
   modificarAlumno(alumno:Alumno){
