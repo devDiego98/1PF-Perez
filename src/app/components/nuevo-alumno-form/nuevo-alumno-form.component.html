@@ -1,6 +1,6 @@
 <h3 class="mb-5">Nuevo Alumno</h3>
 
-<form [formGroup]="formulario" (ngSubmit)="agregarAlumno()">
+<form [formGroup]="formulario" (ngSubmit)="agregarAlumno($event)">
   <div>Nombre: <input type="text" formControlName="nombre" /></div>
   <div
     class="text-danger ml-3 justify-content-end"

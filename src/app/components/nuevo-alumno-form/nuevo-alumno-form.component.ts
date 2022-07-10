@@ -22,7 +22,7 @@ public formulario:FormGroup;
   ngOnInit(): void {
 
   }
-  agregarAlumno(){
+  agregarAlumno(alumno:Alumno){
     this.addAlumno.emit(this.formulario.value)
   }
 }
