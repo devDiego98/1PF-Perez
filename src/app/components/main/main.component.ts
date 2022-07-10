@@ -31,6 +31,8 @@ export class MainComponent{
  
   setearAlumnoAModificar(alumno:Alumno){
     this.infoAlumno = alumno
+    this.editarAlumnoModal.formulario.setValue(alumno)
+
   }
   modificarAlumno(alumno:Alumno){
     this.alumnos[alumno.id] = alumno

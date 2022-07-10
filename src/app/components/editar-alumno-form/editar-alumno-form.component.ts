@@ -13,7 +13,7 @@ export class EditarAlumnoFormComponent implements OnInit {
   @Output() editAlumno = new EventEmitter<Alumno>();
   constructor(private fb: FormBuilder) { 
     this.formulario = this.fb.group({
-      nombre:['',[Validators.required,Validators.minLength(4)]],
+      nombre:[this.alumno?.nombre,[Validators.required,Validators.minLength(4)]],
       apellido:['',[Validators.required,Validators.minLength(4)]],
       edad:['',[Validators.required,Validators.min(10)]]
     })
@@ -22,6 +22,7 @@ export class EditarAlumnoFormComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  
   editarAlumno(){
     let nuevoAlumno = this.formulario.value;
     nuevoAlumno.id = this.alumno?.id;

@@ -35,6 +35,7 @@
       </div>
       <div class="modal-body text-danger">
         <app-editar-alumno-form
+          #editarAlumnoModal
           (editAlumno)="modificarAlumno($event)"
           [alumno]="infoAlumno"
         ></app-editar-alumno-form>
