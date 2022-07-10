@@ -10,14 +10,32 @@
   </div>
   <div
     class="text-danger ml-3 justify-content-end"
-    *ngIf="this.formulario.get('nombre')?.errors?.['required']"
+    *ngIf="this.formulario.get('nombre')?.errors?.['required']&&
+    this.formulario.get('nombre')?.touched"
+  >
+    Campo requerido.
+  </div>
+  <div>Apellido: <input type="text" formControlName="apellido" /></div>
+  <div
+    class="text-danger ml-3 justify-content-end"
+    *ngIf="this.formulario.get('apellido')?.errors?.['minlength']"
+  >
+    Minimo 4 caracteres.
+  </div>
+  <div
+    class="text-danger ml-3 justify-content-end"
+    *ngIf="this.formulario.get('apellido')?.errors?.['required']&&
+    this.formulario.get('apellido')?.touched"
   >
     Campo requerido.
   </div>
   <div>Edad:<input type="number" formControlName="edad" /></div>
   <div
-    class="text-danger ml-3 justify-content-end"
-    *ngIf="this.formulario.get('edad')?.errors?.['required']"
+    class="text-danger ml-3 justify-content-end ng-touched"
+    *ngIf="
+      this.formulario.get('edad')?.errors?.['required'] &&
+      this.formulario.get('edad')?.touched
+    "
   >
     Campo requerido.
   </div>

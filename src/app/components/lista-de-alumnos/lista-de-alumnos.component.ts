@@ -22,4 +22,8 @@ export class ListaDeAlumnosComponent implements OnInit {
     this.ageFilterMin = min;
     this.ageFilterMax = max;
   }
+  
+  delete(index:number):void {
+    this.listaDeAlumnos.splice(index,1)
+  }
 }

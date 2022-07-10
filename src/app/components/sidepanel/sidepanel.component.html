@@ -1,3 +1,17 @@
 <div class="sidepanel">
   <h2>Subroutes</h2>
+  <a
+    [routerLink]="['/admin-panel']"
+    [queryParams]="{ debug: true }"
+    fragment="education"
+  >
+    Admin Panel
+  </a>
+  <a
+    [routerLink]="['/student-panel']"
+    [queryParams]="{ debug: true }"
+    fragment="education"
+  >
+    Student Panel
+  </a>
 </div>

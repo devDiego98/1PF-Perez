@@ -8,9 +8,9 @@ import { Alumno } from 'src/app/interfaces/alumnos';
 })
 export class MainComponent{
   alumnos: Alumno[] = [
-    { nombre: 'diego', edad: 19 },
-    { nombre: 'ale', edad: 16 },
-    { nombre: 'gabriel', edad: 25 },
+    { nombre: 'diego',apellido:'perez', edad: 19 },
+    { nombre: 'ale',apellido:'fonsi', edad: 16 },
+    { nombre: 'gabriel',apellido:'juarez', edad: 25 },
   ];
   constructor() { }
 

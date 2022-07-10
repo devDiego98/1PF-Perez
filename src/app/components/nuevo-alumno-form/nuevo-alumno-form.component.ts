@@ -14,12 +14,13 @@ public formulario:FormGroup;
   constructor(private fb: FormBuilder) { 
     this.formulario = this.fb.group({
       nombre:['',[Validators.required,Validators.minLength(4)]],
+      apellido:['',[Validators.required,Validators.minLength(4)]],
       edad:['',[Validators.required,Validators.min(10)]]
     })
   }
   
   ngOnInit(): void {
-    console.log('initialized')
+
   }
   agregarAlumno(){
     this.addAlumno.emit(this.formulario.value)
