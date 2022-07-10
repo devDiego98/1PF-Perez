@@ -26,9 +26,11 @@
     <ng-container *ngFor="let alumno of listaDeAlumnos; let i = index">
       <tr
         *ngIf="alumno.edad > ageFilterMin && alumno.edad < ageFilterMax"
-        (click)="clickAlumno(alumno)"
+        (click)="editAlumno(alumno)"
+        data-bs-toggle="modal"
+        data-bs-target="#editarAlumnoModal"
       >
-        <th scope="row">{{ i + 1 }}</th>
+        <th scope="row">{{ alumno.id }}</th>
         <td>{{ alumno.nombre | titleCase }}</td>
         <td>{{ alumno.apellido | titleCase }}</td>
         <td>{{ alumno.edad }}</td>

@@ -6,16 +6,17 @@ import {  ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main.component';
 import { TitleCasePipe } from 'src/app/pipes/title-case.pipe';
 import { FontSizeDirective } from 'src/app/directivas/font-size.directive';
+import { EditarAlumnoFormComponent } from '../editar-alumno-form/editar-alumno-form.component';
 
 
 @NgModule({
   declarations: [ListaDeAlumnosComponent,
-    NuevoAlumnoFormComponent,MainComponent,TitleCasePipe,FontSizeDirective],
+    NuevoAlumnoFormComponent,MainComponent,TitleCasePipe,FontSizeDirective,EditarAlumnoFormComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     
   ],
-  exports:[TitleCasePipe,NuevoAlumnoFormComponent,ListaDeAlumnosComponent,ReactiveFormsModule,MainComponent,FontSizeDirective]
+  exports:[TitleCasePipe,NuevoAlumnoFormComponent,ListaDeAlumnosComponent,ReactiveFormsModule,MainComponent,FontSizeDirective,EditarAlumnoFormComponent]
 })
 export class MainModule { }

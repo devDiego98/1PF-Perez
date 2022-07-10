@@ -7,7 +7,7 @@ import { Alumno } from 'src/app/interfaces/alumnos';
 })
 export class ListaDeAlumnosComponent implements OnInit {
   @Input() listaDeAlumnos: Alumno[]=[];
-  @Output() onClickAlumno = new EventEmitter<number>();
+  @Output() onClickAlumno = new EventEmitter<Alumno>();
   ageFilterMin:number = 0
   ageFilterMax:number = 100
   constructor() {}
@@ -15,8 +15,9 @@ export class ListaDeAlumnosComponent implements OnInit {
   ngOnInit(): void {
   
   }
-  clickAlumno(alumno:Alumno){
-    this.onClickAlumno.emit(alumno.edad)
+  editAlumno(alumno:Alumno){
+    this.onClickAlumno.emit(alumno)
+    
   }
   setAgeFilter(min:number,max:number){
     this.ageFilterMin = min;

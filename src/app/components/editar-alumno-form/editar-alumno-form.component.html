@@ -1,5 +1,5 @@
-<form [formGroup]="formulario" (ngSubmit)="agregarAlumno($event)">
-  <div>
+<form [formGroup]="formulario" (ngSubmit)="editarAlumno()" #editarAlumnoModal>
+  <div class="mb-3">
     Nombre:
     <input type="text" formControlName="nombre" />
   </div>
@@ -12,11 +12,13 @@
   <div
     class="text-danger ml-3 justify-content-end"
     *ngIf="this.formulario.get('nombre')?.errors?.['required']&&
-    this.formulario.get('nombre')?.touched"
+      this.formulario.get('nombre')?.touched"
   >
     Campo requerido.
   </div>
-  <div>Apellido: <input type="text" formControlName="apellido" /></div>
+  <div class="mb-3">
+    Apellido: <input type="text" formControlName="apellido" />
+  </div>
   <div
     class="text-danger ml-3 justify-content-end"
     *ngIf="this.formulario.get('apellido')?.errors?.['minlength']"
@@ -26,17 +28,17 @@
   <div
     class="text-danger ml-3 justify-content-end"
     *ngIf="this.formulario.get('apellido')?.errors?.['required']&&
-    this.formulario.get('apellido')?.touched"
+      this.formulario.get('apellido')?.touched"
   >
     Campo requerido.
   </div>
-  <div>Edad:<input type="number" formControlName="edad" /></div>
+  <div class="mb-3">Edad:<input type="number" formControlName="edad" /></div>
   <div
     class="text-danger ml-3 justify-content-end ng-touched"
     *ngIf="
-      this.formulario.get('edad')?.errors?.['required'] &&
-      this.formulario.get('edad')?.touched
-    "
+        this.formulario.get('edad')?.errors?.['required'] &&
+        this.formulario.get('edad')?.touched
+      "
   >
     Campo requerido.
   </div>

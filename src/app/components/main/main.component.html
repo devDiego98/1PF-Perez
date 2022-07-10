@@ -1,12 +1,54 @@
 <div class="main">
   <h1>Main</h1>
   <hr />
+  <h3 class="mb-5">Nuevo Alumno</h3>
   <app-nuevo-alumno-form
     (addAlumno)="newAlumno($event)"
   ></app-nuevo-alumno-form>
   <hr />
   <app-lista-de-alumnos
     [listaDeAlumnos]="alumnos"
-    (onClickAlumno)="acceptData($event)"
+    (onClickAlumno)="setearAlumnoAModificar($event)"
   ></app-lista-de-alumnos>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="editarAlumnoModal"
+  tabindex="-1"
+  aria-labelledby="editarAlumnoModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="editarAlumnoModalLabel">
+          Modificar Alumno
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body text-danger">
+        <app-editar-alumno-form
+          (editAlumno)="modificarAlumno($event)"
+          [alumno]="infoAlumno"
+        ></app-editar-alumno-form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-warning"
+          #closeModal
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

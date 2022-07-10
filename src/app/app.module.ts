@@ -19,6 +19,7 @@ import { StudentPanelComponent } from './pages/student/student-panel/student-pan
     SidepanelComponent,
     AdminPanelComponent,
     StudentPanelComponent,
+    
  
 
   ],
