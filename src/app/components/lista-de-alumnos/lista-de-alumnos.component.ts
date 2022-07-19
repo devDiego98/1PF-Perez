@@ -8,6 +8,7 @@ import { Alumno } from 'src/app/interfaces/alumnos';
 export class ListaDeAlumnosComponent implements OnInit {
   @Input() listaDeAlumnos: Alumno[]=[];
   @Output() onClickAlumno = new EventEmitter<Alumno>();
+  @Output() deleteAlumno = new EventEmitter<number>();
   ageFilterMin:number = 0
   ageFilterMax:number = 100
   constructor() {}
@@ -25,6 +26,7 @@ export class ListaDeAlumnosComponent implements OnInit {
   }
   
   delete(index:number):void {
-    this.listaDeAlumnos.splice(index,1)
+    this.deleteAlumno.emit(index)
+    
   }
 }

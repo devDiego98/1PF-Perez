@@ -1,4 +1,4 @@
-<form [formGroup]="formulario" (ngSubmit)="editarAlumno($event)">
+<form [formGroup]="formulario" (ngSubmit)="editarAlumno()">
   <div class="mb-3">
     Nombre:
     <input type="text" formControlName="nombre" />
@@ -48,5 +48,5 @@
   >
     Edad no puede ser menor a 10.
   </div>
-  <button type="submit" class="btn btn-light">Crear</button>
+  <button type="submit" class="btn btn-light">Editar</button>
 </form>

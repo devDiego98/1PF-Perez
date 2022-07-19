@@ -8,7 +8,7 @@ import { Alumno } from 'src/app/interfaces/alumnos';
   styleUrls: ['./editar-alumno-form.component.scss']
 })
 export class EditarAlumnoFormComponent implements OnInit {
-  @Input() alumno:Alumno | undefined ;
+  @Input() alumno?:Alumno;
   public formulario:FormGroup;
   @Output() editAlumno = new EventEmitter<Alumno>();
 
@@ -24,9 +24,8 @@ export class EditarAlumnoFormComponent implements OnInit {
 
   }
   
-  editarAlumno(alumno:Alumno){
-    console.log(this.formulario.get('nombre')?.errors)
-    if(this.formulario.get('nombre')?.errors === null && this.formulario.get('apellido')?.errors === null  && this.formulario.get('edad')?.errors === null  ){
+  editarAlumno(){
+    if(!this.formulario.invalid ){
     let nuevoAlumno = this.formulario.value;
     nuevoAlumno.id = this.alumno?.id;
     this.editAlumno.emit(nuevoAlumno)

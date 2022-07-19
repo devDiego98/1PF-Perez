@@ -6,9 +6,9 @@ import { AdminPanelComponent } from './pages/admin/admin-panel/admin-panel.compo
 import { StudentPanelComponent } from './pages/student/student-panel/student-panel.component';
 
 const routes: Routes = [
-  // { path: '/', component: AppComponent },
-  // { path: '/admin-panel', component: AdminPanelComponent },
-  // { path: '/student-panel', component: StudentPanelComponent },
+  { path: '', component: MainComponent },
+  { path: 'admin-panel', component: AdminPanelComponent },
+  { path: 'student-panel', component: StudentPanelComponent },
 ];
 
 

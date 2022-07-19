@@ -1,6 +1,7 @@
 import { Component, OnInit ,ViewChild,ElementRef} from '@angular/core';
 import { Alumno } from 'src/app/interfaces/alumnos';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -11,21 +12,18 @@ export class MainComponent{
   @ViewChild('editarAlumnoModal') editarAlumnoModal:any
   showModal:boolean = false;
   infoAlumno:Alumno = {nombre:'',apellido:'',edad:0,id:0}
-
+  idCount:number = 0;
  
  
-  alumnos: Alumno[] = [
-    { nombre: 'diego',apellido:'perez', edad: 19,id:0 },
-    { nombre: 'alejandro',apellido:'fonsi', edad: 16 ,id:1},
-    { nombre: 'gabriel',apellido:'juarez', edad: 25, id:2 },
-  ];
+  alumnos: Alumno[] = [];
   constructor() { 
     
   }
 
   newAlumno(alumno:Alumno){
     let newAlumno = alumno;
-    alumno.id=this.alumnos.length;
+    this.idCount++;
+    alumno.id=this.idCount;
     this.alumnos.push(alumno)
   }
  
@@ -39,8 +37,14 @@ export class MainComponent{
 
   }
   modificarAlumno(alumno:Alumno){
-    this.alumnos[alumno.id] = alumno
+    console.log(this.alumnos)
+    console.log(alumno)
+    let index = this.alumnos.findIndex(x => x.id === alumno.id);
+    this.alumnos[index] = alumno
     this.closeModal.nativeElement.click()
+  }
 
+  deleteAlumno(index:number){
+    this.alumnos.splice(index,1)
   }
 }
