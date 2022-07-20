@@ -31,7 +31,6 @@ export class MainComponent implements OnInit{
         this.alumnos = val;
        })
     })
-   
   }
  
   setearAlumnoAModificar(alumno:Alumno){
@@ -44,9 +43,12 @@ export class MainComponent implements OnInit{
 
   }
   modificarAlumno(alumno:Alumno){
-    let index = this.alumnos.findIndex(x => x.id === alumno.id);
-    this.alumnos[index] = alumno
-    this.closeModal.nativeElement.click()
+    this.requests.updateStudent(alumno).subscribe(val=>{
+      this.requests.getStudents().subscribe(val => {
+        this.alumnos = val;
+        this.closeModal.nativeElement.click()
+       })
+    })
   }
 
   deleteAlumno(id:number){

@@ -23,5 +23,8 @@ export class RequestsService {
    newStudent(alumno:Alumno){
     return this.http.post(`http://localhost:3000/students`,alumno)
   }
+   updateStudent(alumno:Alumno){
+    return this.http.put(`http://localhost:3000/students/${alumno.id}`,alumno)
+  }
 
 }
