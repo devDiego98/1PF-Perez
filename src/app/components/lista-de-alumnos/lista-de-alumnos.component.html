@@ -45,7 +45,9 @@
           {{ alumno.edad }}
         </td>
         <td>
-          <button class="btn btn-danger" (click)="delete(i)">Delete</button>
+          <button class="btn btn-danger" (click)="delete(alumno.id)">
+            Delete
+          </button>
         </td>
       </tr>
     </ng-container>

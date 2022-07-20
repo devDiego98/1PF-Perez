@@ -1,13 +1,13 @@
 import { Component, OnInit ,ViewChild,ElementRef} from '@angular/core';
 import { Alumno } from 'src/app/interfaces/alumnos';
-
+import { RequestsService } from 'src/app/services/requests.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent{
+export class MainComponent implements OnInit{
   @ViewChild('closeModal') closeModal:any
   @ViewChild('editarAlumnoModal') editarAlumnoModal:any
   showModal:boolean = false;
@@ -16,15 +16,22 @@ export class MainComponent{
  
  
   alumnos: Alumno[] = [];
-  constructor() { 
+  constructor(private requests:RequestsService) { 
     
   }
 
+   ngOnInit(): void {
+    this.requests.getStudents().subscribe(val => {
+      this.alumnos = val;
+     })
+   }
   newAlumno(alumno:Alumno){
-    let newAlumno = alumno;
-    this.idCount++;
-    alumno.id=this.idCount;
-    this.alumnos.push(alumno)
+    this.requests.newStudent(alumno).subscribe(()=>{
+      this.requests.getStudents().subscribe(val => {
+        this.alumnos = val;
+       })
+    })
+   
   }
  
   setearAlumnoAModificar(alumno:Alumno){
@@ -37,14 +44,16 @@ export class MainComponent{
 
   }
   modificarAlumno(alumno:Alumno){
-    console.log(this.alumnos)
-    console.log(alumno)
     let index = this.alumnos.findIndex(x => x.id === alumno.id);
     this.alumnos[index] = alumno
     this.closeModal.nativeElement.click()
   }
 
-  deleteAlumno(index:number){
-    this.alumnos.splice(index,1)
+  deleteAlumno(id:number){
+    this.requests.deleteStudent(id).subscribe(val=>{
+      this.requests.getStudents().subscribe(val => {
+        this.alumnos = val;
+       })
+    })
   }
 }

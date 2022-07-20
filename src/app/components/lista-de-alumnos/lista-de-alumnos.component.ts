@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Alumno } from 'src/app/interfaces/alumnos';
+import { RequestsService } from 'src/app/services/requests.service';
 @Component({
   selector: 'app-lista-de-alumnos',
   templateUrl: './lista-de-alumnos.component.html',
@@ -11,7 +12,7 @@ export class ListaDeAlumnosComponent implements OnInit {
   @Output() deleteAlumno = new EventEmitter<number>();
   ageFilterMin:number = 0
   ageFilterMax:number = 100
-  constructor() {}
+  constructor(private requests:RequestsService) {}
 
   ngOnInit(): void {
   
@@ -25,8 +26,7 @@ export class ListaDeAlumnosComponent implements OnInit {
     this.ageFilterMax = max;
   }
   
-  delete(index:number):void {
-    this.deleteAlumno.emit(index)
-    
+  delete(id:number):void {
+    this.deleteAlumno.emit(id)
   }
 }

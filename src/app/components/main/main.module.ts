@@ -7,7 +7,7 @@ import { MainComponent } from './main.component';
 import { TitleCasePipe } from 'src/app/pipes/title-case.pipe';
 import { FontSizeDirective } from 'src/app/directivas/font-size.directive';
 import { EditarAlumnoFormComponent } from '../editar-alumno-form/editar-alumno-form.component';
-
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [ListaDeAlumnosComponent,
@@ -15,6 +15,7 @@ import { EditarAlumnoFormComponent } from '../editar-alumno-form/editar-alumno-f
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    HttpClientModule
     
   ],
   exports:[TitleCasePipe,NuevoAlumnoFormComponent,ListaDeAlumnosComponent,ReactiveFormsModule,MainComponent,FontSizeDirective,EditarAlumnoFormComponent]

@@ -1,0 +1,22 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "nombre": "diego",
+      "apellido": "perez",
+      "edad": 22
+    },
+    {
+      "id": 2,
+      "nombre": "ale",
+      "apellido": "juarez",
+      "edad": 23
+    },
+    {
+      "nombre": "Jhonny",
+      "apellido": "Bravo",
+      "edad": 33,
+      "id": 5
+    }
+  ]
+}
