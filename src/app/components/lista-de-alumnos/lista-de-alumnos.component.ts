@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Alumno } from 'src/app/interfaces/alumnos';
 import { RequestsService } from 'src/app/services/requests.service';
 @Component({
@@ -7,7 +8,7 @@ import { RequestsService } from 'src/app/services/requests.service';
   styleUrls: ['./lista-de-alumnos.component.scss'],
 })
 export class ListaDeAlumnosComponent implements OnInit {
-  @Input() listaDeAlumnos: Alumno[]=[];
+  @Input() listaDeAlumnos$:Observable<Alumno[]>= of([]);
   @Output() onClickAlumno = new EventEmitter<Alumno>();
   @Output() deleteAlumno = new EventEmitter<number>();
   ageFilterMin:number = 0

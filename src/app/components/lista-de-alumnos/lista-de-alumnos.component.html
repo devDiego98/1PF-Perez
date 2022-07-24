@@ -16,14 +16,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngIf="listaDeAlumnos.length === 0">
-      <th scope="row">-</th>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-    </tr>
-    <ng-container *ngFor="let alumno of listaDeAlumnos; let i = index">
+    <ng-container *ngIf="listaDeAlumnos$ | async as listaDeAlumnos">
+      <tr *ngIf="listaDeAlumnos.length === 0">
+        <th scope="row">-</th>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </ng-container>
+    <ng-container *ngFor="let alumno of listaDeAlumnos$ | async; let i = index">
       <tr
         *ngIf="alumno.edad > ageFilterMin && alumno.edad < ageFilterMax"
         (click)="editAlumno(alumno)"
