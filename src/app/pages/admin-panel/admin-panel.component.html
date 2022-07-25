@@ -1,0 +1,34 @@
+<div class="main">
+  <h1>Main</h1>
+  <hr />
+  <h3 class="mb-5">Nuevo Alumno</h3>
+  <app-nuevo-alumno-form
+    (addAlumno)="newAlumno($event)"
+  ></app-nuevo-alumno-form>
+  <hr />
+  <app-lista-de-alumnos
+    [listaDeAlumnos$]="alumnos$"
+    (onClickAlumno)="setearAlumnoAModificar($event)"
+    (deleteAlumno)="deleteAlumno($event)"
+  ></app-lista-de-alumnos>
+</div>
+
+<!-- Modal-->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <app-editar-alumno-form
+      #editarAlumnoModal
+      (editAlumno)="modificarAlumno($event)"
+      [alumno]="infoAlumno"
+    ></app-editar-alumno-form>
+  </div>
+</ng-template>

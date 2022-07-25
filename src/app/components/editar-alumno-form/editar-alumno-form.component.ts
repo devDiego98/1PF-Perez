@@ -21,7 +21,11 @@ export class EditarAlumnoFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+     this.formulario.setValue({
+      nombre:this.alumno?.nombre,
+      apellido:this.alumno?.apellido,
+      edad:this.alumno?.edad,
+    })
   }
   
   editarAlumno(){
