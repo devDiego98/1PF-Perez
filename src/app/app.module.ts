@@ -5,27 +5,19 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidepanelComponent } from './components/sidepanel/sidepanel.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { EndUserModule } from './modules/end-user.module';
-import { AdminModule } from './modules/admin.module';
-import { StudentModule } from './modules/student.module';
-
-
+import { AdminModule } from './modules/admin/admin.module';
+import { StudentModule } from './modules/student/student.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    SidepanelComponent,
-  ],
+  declarations: [AppComponent, NavbarComponent, SidepanelComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    EndUserModule,
     AdminModule,
-    StudentModule
+    StudentModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
