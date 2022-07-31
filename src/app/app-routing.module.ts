@@ -1,18 +1,20 @@
+import { RegisterComponent } from './modules/auth/register/register.component';
+import { LoginComponent } from './modules/auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EndUserComponent } from './pages/end-user/end-user.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import { StudentPanelComponent } from './pages/student-panel/student-panel.component';
 
 const routes: Routes = [
-  { path: '', component: EndUserComponent },
+  { path: '', component: StudentPanelComponent },
   { path: 'admin-panel', component: AdminPanelComponent },
-  { path: 'student-panel', component: StudentPanelComponent },
+  { path: 'students', component: StudentPanelComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
